@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   quote
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>price</th>
+            <th>symbol</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+            {% for key, value in Myloop.items() %}
+                 <td>{{value}}</td>
+             {% endfor %}
+        
+        
+        </tbody>
+       
+       </table>
+{% endblock %}

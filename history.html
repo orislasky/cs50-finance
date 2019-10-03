@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   history
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>bought / sold</th>
+            <th>symbol</th>
+            <th>price</th>
+            <th>shares</th>
+            <th>date & time</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for k,v in Myloop.items()%}
+               {% for ke, va in v.items() %}
+                <td>{{ va }}</td>
+                {% endfor %} 
+                <tr></tr>
+            {% endfor %}
+       
+        
+        </tbody>
+       
+       </table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   index
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for k in Myloop%}
+              {% for key, value in k.items() %}
+               {% for ke, va in value.items() %}
+                <td>{{ va }}</td>
+                {% endfor %} 
+                <tr></tr>
+               {% endfor %} 
+            {% endfor %}
+            
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>{{total}}</b></td>
+        
+        </tbody>
+       
+       </table>
+{% endblock %}

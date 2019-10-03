@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select name = "symbol" >
+            <option name="Rows" selected disabled>select a stock to sell</option>
+             {% for k in Myloop%}
+            {% for key, value in k.items() %}
+                 
+             
+                <option name="symble">{{value}}</option>
+                 {% endfor %}
+            {% endfor %}
+            
+            
+            </select>
+            <input autocomplete="on" autofocus class="form-control" name="shares" placeholder="sell" type="number">
+        <button class="btn btn-primary" type="sell">sell</button>
+            
+        </div>
+    </form>
+{% endblock %}

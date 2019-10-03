@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" >
+        </div>
+        
+           <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+         <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Enter here your pasword you typed before" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit" >register</button>
+        
+        
+    </form>
+    
+
+
+<script>
+        var username = document.querySelector('input.username');
+        var myForm = document.querySelector('form');
+        myForm.onsubmit = function(data){
+        $.get('/check?=username' + username, function() {
+            if (data==true){
+            myForm.submit();
+            }
+
+            else {
+             alert('Username taken!'); // this alert fires correctly, however the form submits anyway
+             document.getElement('form').addEventListener("submit", function(event){
+             event.preventDefault();
+                });
+            }
+        });
+      };
+
+</script>
+
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://18.217.123.71:45000/check?username=ori", true);
+  xhttp.send();
+  var returnedData = JSON.parse(xhttp);
+  alert("dufus=");
+  if (returnedData=="true")
+    alert("invalid username");
+}
+</script>
+{% endblock %}
